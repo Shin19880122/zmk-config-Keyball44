@@ -360,3 +360,10 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+combos:
+- p: [19, 20]
+  k: $$mdi:mouse-left-click-outline$$
+- p: [20, 21]
+  k: $$mdi:mouse-right-click-outline$$
+- p: [14, 13]
+  k: $$mdi:keyboard-space$$
