@@ -1,11 +1,12 @@
 /*
  * keyball44_right.overlay
- * 元の overlay にオートマウス停止機能を追加
+ * 元の overlay にオートマウス用 input-processor を追加
  */
 
 #include "keyball44.dtsi"
 
-/* --- 既存ノード --- */
+/* ----- 元の設定 ----- */
+
 &default_transform {
     col-offset = <6>;
 };
@@ -64,19 +65,17 @@
     };
 };
 
-/* --- ここから追加 --- */
- 
-/ {
-    /* J/K/L以外でオートマウスレイヤーを停止する input-processor */
-    zip_temp_layer: zip_temp_layer {
+/* ----- 追加: オートマウス用 input-processor ----- */
+
+&{
+    automouse_input_processor: zip_temp_layer {
         compatible = "zmk,input-processor";
-        excluded-positions = <19 20 21>; /* J=19, K=20, L=21 */
+        excluded-positions = <19 20 21>; /* J,K,L */
     };
 
-    /* trackball イベント用 listener */
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 5 10000>; /* 5ms, 10000ms (10秒) */
+        input-processors = <&automouse_input_processor>;
     };
 };
