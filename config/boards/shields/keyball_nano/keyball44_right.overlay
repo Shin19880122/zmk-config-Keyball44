@@ -1,14 +1,19 @@
+/*
+ * Copyright (c) 2020 ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "keyball44.dtsi"
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-/* デフォルト設定 */
 &default_transform {
     col-offset = <6>;
 };
 
 &kscan0 {
-    col-gpios = <
+	col-gpios = <
         &pro_micro 4 GPIO_ACTIVE_HIGH,
         &pro_micro 5 GPIO_ACTIVE_HIGH,
         &pro_micro 6 GPIO_ACTIVE_HIGH,
@@ -18,8 +23,24 @@
     >;
 };
 
-/* SPI / trackball は既存通り */
-&pinctrl { /* ... */ };
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 10)>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 10)>;
+            low-power-enable;
+        };
+    };
+};
 
 &spi1 {
     status = "okay";
@@ -41,16 +62,19 @@
     };
 };
 
-/* J/K/L 以外でオートマウス停止 input-processor */
+/* AML 停止用 Input Processor */
 &zip_temp_layer {
-    compatible = "zmk,input-processor";
-    trackball = <&trackball>;
-    automouse-layer = <4>;
-    stop-keys = <KEY_J KEY_K KEY_L>;  // ZMK keycode
+    excluded-positions = <
+        19  // J
+        20  // K
+        21  // L
+    >;
 };
 
 &trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-    input-processors = <&zip_temp_layer>;
+
+    /* layer 4 を 10秒間有効、excluded-positions 以外のキー押下で解除 */
+    input-processors = <&zip_temp_layer 4 10000>;
 };
