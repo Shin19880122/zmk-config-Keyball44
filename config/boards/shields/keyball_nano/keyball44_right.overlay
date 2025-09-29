@@ -66,11 +66,8 @@
 
 /* カスタム processor: J/K/L 以外で layer 強制停止 */
 &zip_temp_layer {
-    excluded-positions = <
-        19  // J
-        20  // K
-        21  // L
-    >;
+    excluded-positions = <19 20 21>;
+};
 
     stop-layer = <4>;  // オートマウスレイヤー番号
 };
