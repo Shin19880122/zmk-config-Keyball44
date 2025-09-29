@@ -51,6 +51,25 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Lcrick {
+            bindings = <&mkp LCLK>;
+            key-positions = <19 20>;
+        };
+
+        Rcrick {
+            bindings = <&mkp RCLK>;
+            key-positions = <20 21>;
+        };
+
+        Space {
+            bindings = <&kp SPACE>;
+            key-positions = <14 13>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
