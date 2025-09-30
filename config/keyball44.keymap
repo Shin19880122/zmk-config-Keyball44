@@ -126,9 +126,9 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&none   &none   &none   &none   &none   &none              &none   &none      &none      &none  &none      &none
-&none   &none   &none   &kp D   &kp F   &none              &trans  &mkp LCLK  &mkp RCLK  &mo 5  &mkp MCLK  &none
-&none   &none   &none   &none   &none   &none              &trans  &none      &none      &none  &none      &none
+&none   &none   &none   &none   &kp R   &none              &none   &none      &none      &none  &none      &none
+&none   &none   &none   &kp D   &kp F   &kp G              &trans  &mkp LCLK  &mkp RCLK  &mo 5  &mkp MCLK  &none
+&none   &none   &none   &none   &kp V   &kp B              &trans  &none      &none      &none  &none      &none
 &trans  &trans  &trans  &trans  &trans             &trans  &trans                                          &none
             >;
         };
