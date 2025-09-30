@@ -367,3 +367,7 @@ combos:
   k: $$mdi:mouse-right-click-outline$$
 - p: [14, 13]
   k: $$mdi:keyboard-space$$
+- p: [13, 15]
+  k: F1
+- p: [14, 28]
+  k: F2
