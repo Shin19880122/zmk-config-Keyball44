@@ -71,12 +71,12 @@
 
         F1press {
             bindings = <&kp F1>;
-            key-positions = <13 15>;
+            key-positions = <17 15>;
         };
 
         F2press {
             bindings = <&kp F2>;
-            key-positions = <14 28>;
+            key-positions = <15 29>;
         };
     };
 
