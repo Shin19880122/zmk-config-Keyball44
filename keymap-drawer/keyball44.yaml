@@ -154,10 +154,10 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - F14
-  - F15
-  - F16
-  - F17
+  - Sft+F14
+  - Sft+F15
+  - Sft+F16
+  - Sft+F17
   - (
   - )
   - {t: '$$mdi:minus-circle-outline$$', type: none}
