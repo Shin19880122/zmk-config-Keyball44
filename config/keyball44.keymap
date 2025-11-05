@@ -78,6 +78,21 @@
             bindings = <&kp F2>;
             key-positions = <15 29>;
         };
+
+        conma {
+            bindings = <&kp COMMA>;
+            key-positions = <32 33>;
+        };
+
+        piriod {
+            bindings = <&kp PERIOD>;
+            key-positions = <33 34>;
+        };
+
+        slash {
+            bindings = <&kp SLASH>;
+            key-positions = <34 35>;
+        };
     };
 
     keymap {
