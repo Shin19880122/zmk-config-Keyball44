@@ -136,13 +136,6 @@
     compatible = "zmk,input-listener";
     device = <&trackball>;
     input-processors = <&zip_temp_layer 4 800>;
-// マウスレイヤー解除のための設定
-    excluded-positions = <
-        19 // J
-        20 // K
-        21 // L
-    >;
   };
-};
-
+}
 };
