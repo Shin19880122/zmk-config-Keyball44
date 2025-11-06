@@ -129,13 +129,10 @@
 	scroll-layers = <5>;
 	snipe-layers = <6>;
     };
-};
-
-/ {
-  trackball_listener {
+/* "変更箇所" ここから */
+&trackball_listener {  // 重複したコードの最初の部分を削除しました。
     compatible = "zmk,input-listener";
     device = <&trackball>;
     input-processors = <&zip_temp_layer 4 800>;
-  };
-}
 };
+/* "変更箇所" ここまで */
